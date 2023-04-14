@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form *ngIf="registerFormAsIndividual">
+      <div>
+        <span>Email</span>
+        <input type="text">
+      </div>
+      <div>
+        <span>Password</span>
+        <input type="text">
+      </div>
+      <button type="submit" (click)="submit()">Sign up</button>
+    </form>
+  </body>
+</html>
