@@ -1,16 +1,133 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <form *ngIf="registerFormAsIndividual">
+    <div>
+      <span>Register as a company</span>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="chosenForm">
+        <span class="slider round"></span>
+      </label>
+      <span>Register as an individual</span>
+    </div>
+
+    <form *ngIf="chosenForm" [formGroup]="registerFormAsIndividual" (ngSubmit)="submit(registerFormAsIndividual)">
+      <div>
+        <span>Firstname</span>
+        <input type="text" [formControlName]="'firstname'">
+      </div>
+      <div>
+        <span>Lastname</span>
+        <input type="text" [formControlName]="'lastname'">
+      </div>
+      <div>
+        <span>Date of birth</span>
+        <input type="date" [formControlName]="'birthday'">
+      </div>
+      <div>
+        <span>Phone*</span>
+        <input type="tel" [formControlName]="'phone'">
+      </div>
+      <div>
+        <span>Street*</span>
+        <input type="text" [formControlName]="'street'">
+      </div>
+      <div>
+        <span>Zip code*</span>
+        <input type="text" [formControlName]="'zip'">
+      </div>
+      <div>
+        <span>City*</span>
+        <input type="text" [formControlName]="'city'">
+      </div>
+      <div>
+        <span>Country*</span>
+        <input type="text" [formControlName]="'country'">
+      </div>
       <div>
         <span>Email</span>
-        <input type="text">
+        <input type="email" [formControlName]="'email'">
       </div>
       <div>
         <span>Password</span>
-        <input type="text">
+        <input type="password" id="ip" [formControlName]="'password'" #ip>
+        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
+          <img *ngIf="ip.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+          <img *ngIf="ip.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+        </button>
       </div>
-      <button type="submit" (click)="submit()">Sign up</button>
+      <div>
+        <span>Repeat password</span>
+        <input type="password" id="ipr" [formControlName]="'repeatPassword'">
+        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
+          <img *ngIf="ip.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+          <img *ngIf="ip.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+        </button>
+      </div>
+      <div>
+        <span>Terms and conditions</span>
+        <input type="checkbox" [formControlName]="'termsAndConditions'">
+      </div>
+      <button type="submit">Sign up</button>
+    </form>
+
+    <form *ngIf="!chosenForm" [formGroup]="registerFormAsCompany" (ngSubmit)="submit(registerFormAsCompany)">
+      <div>
+        <span>Company name</span>
+        <input type="text" [formControlName]="'companyName'">
+      </div>
+      <div>
+        <span>Owner firstname</span>
+        <input type="text" [formControlName]="'ownerFirstname'">
+      </div>
+      <div>
+        <span>Owner lastname</span>
+        <input type="text" [formControlName]="'ownerLastname'">
+      </div>
+      <div>
+        <span>Phone*</span>
+        <input type="tel" [formControlName]="'phone'">
+      </div>
+      <div>
+        <span>Street*</span>
+        <input type="text" [formControlName]="'street'">
+      </div>
+      <div>
+        <span>Zip code*</span>
+        <input type="text" [formControlName]="'zip'">
+      </div>
+      <div>
+        <span>City*</span>
+        <input type="text" [formControlName]="'city'">
+      </div>
+      <div>
+        <span>Country*</span>
+        <input type="text" [formControlName]="'country'">
+      </div>
+      <div>
+        <span>Email</span>
+        <input type="email" [formControlName]="'email'">
+      </div>
+      <div>
+        <span>Password</span>
+        <input type="password" id="cp" [formControlName]="'password'" #cp>
+        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
+          <img *ngIf="cp.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+          <img *ngIf="cp.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+        </button>
+      </div>
+      <div>
+        <span>Repeat password</span>
+        <input type="password" id="cpr" [formControlName]="'repeatPassword'">
+        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
+          <img *ngIf="cp.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+          <img *ngIf="cp.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+        </button>
+      </div>
+      <div>
+        <span>Terms and conditions</span>
+        <input type="checkbox" [formControlName]="'termsAndConditions'">
+      </div>
+      <button type="submit">Sign up</button>
     </form>
   </body>
 </html>

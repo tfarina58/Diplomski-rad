@@ -4,7 +4,7 @@ import {AppComponent} from "./app.component";
 import {LoginComponent} from "./pages/auth/login/login.component";
 import {RegisterComponent} from "./pages/auth/register/register.component";
 import {AuthComponent} from "./pages/auth/auth.component";
-import {MainComponent} from "./pages/main/main.component";
+import {HomeComponent} from "./pages/home/home.component";
 
 const routes: Routes = [
   {
@@ -24,8 +24,8 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'main',
-    component: MainComponent
+    path: 'home',
+    component: HomeComponent
   }
 ];
 

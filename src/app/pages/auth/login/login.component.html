@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <div *ngIf="true">
+    <form *ngIf="loginForm" [formGroup]="loginForm">
       <div>
         <span>Email</span>
-        <input type="text">
+        <input type="text" [formControlName]="'email'">
       </div>
       <div>
         <span>Password</span>
-        <input type="text">
+        <input type="password" id="cp" [formControlName]="'password'" #password>
+        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
+          <img *ngIf="password.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+          <img *ngIf="password.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+        </button>
       </div>
       <button (click)="submit()">Log in</button>
-    </div>
+    </form>
   </body>
 </html>

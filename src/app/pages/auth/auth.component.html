@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <button *ngIf="true" (click)="navService.navigateTo('/register')">Register</button>
-    <button *ngIf="true" (click)="navService.navigateTo('/login')">Login</button>
+    <button (click)="navService.navigateTo('/register')">Register</button>
+    <button (click)="navService.navigateTo('/login')">Login</button>
+    <button (click)="navService.navigateTo('/home')">Home</button>
   </body>
 </html>
