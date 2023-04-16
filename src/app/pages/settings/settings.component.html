@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <nav class="sidebar-navigation w-5">
+      <div class="active" id="home" (click)="navService.navigateTo('personal-info')">
+        <span class="tooltip">Personal information</span>
+      </div>
+      <div (click)="logOut()">
+        <span class="tooltip">Log out</span>
+      </div>
+    </nav>
+  </body>
+</html>
