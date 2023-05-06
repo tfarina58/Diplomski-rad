@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="header">
+      <app-header></app-header>
+    </div>
+    <div style="height: max-content; width: auto">
+      <nav class ="navbar">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': selectedTab == 'terms_of_use'}" (click)="selectedTab = 'terms_of_use'">Terms of use</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': selectedTab == 'data_protection'}" (click)="selectedTab = 'data_protection'">Data protection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': selectedTab == 'about_us'}" (click)="selectedTab = 'about_us'">About us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
