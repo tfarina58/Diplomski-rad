@@ -10,7 +10,7 @@ export class HeaderComponent {
 
   activeElement: string = 'home';
 
-  constructor(private navService: NavigationService) {}
+  constructor(public navService: NavigationService) {}
 
   async click(target: string) {
     (document.getElementById(this.activeElement) as HTMLElement).classList.remove('active');

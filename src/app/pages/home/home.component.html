@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
   <body>
-  <app-header></app-header>
-  <div>
+    <div class="header">
+      <app-header></app-header>
+    </div>
+    <div>
+      <div class="nav-item">
+        <a class="nav-link" (click)="navService.navigateTo('/news')">Statistics</a>
+      </div>
 
-  </div>
+      <div class="nav-item">
+        <a class="nav-link" (click)="navService.navigateTo('/statistics')">Statistics</a>
+      </div>
+    </div>
   </body>
 </html>

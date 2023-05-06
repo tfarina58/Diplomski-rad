@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
 
 
   async ngOnInit() {
-    console.log("New app");
     await this.router.navigate(['/auth']);
   }
 }

@@ -10,13 +10,13 @@ import {ToastrService} from "ngx-toastr";
 })
 export class LoginComponent {
   loginForm: FormGroup = this.formBuilder.group({
-    email: new FormControl('', Validators.compose([Validators.required, Validators.pattern('([-!#-\'*+/-9=?A-Z^-~]+(\\.[-!#-\'*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \\t]|(\\\\[\\t -~]))+")@[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)+'), Validators.minLength(5)])),
+    email: new FormControl('', Validators.compose([Validators.required, Validators.pattern('([-!#-\'*+/-9=?A-Z^-~]+(\\.[-!#-\'*+/-9=?A-Z^-~]+)*|"([]!#-[^-~ \\t]|(\\\\[\\t -~]))+")@[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?(\\.[0-9A-Za-z]([0-9A-Za-z-]{0,61}[0-9A-Za-z])?)+'), Validators.minLength(8)])),
     password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(8)]))
   });
 
   constructor(private formBuilder: FormBuilder,
               private toast: ToastrService,
-              private navService: NavigationService) {}
+              public navService: NavigationService) {}
 
   async submit() {
     // Invalid data submitted

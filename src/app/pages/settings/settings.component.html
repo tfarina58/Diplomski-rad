@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <nav class="sidebar-navigation w-5">
-      <div class="active" id="home" (click)="navService.navigateTo('personal-info')">
-        <span class="tooltip">Personal information</span>
+    <div class="header">
+      <app-header></app-header>
+    </div>
+    <div class="options">
+      <div class="card" (click)="navService.navigateTo('/personal-info')">
+        <img src="../../../assets/images/personal-info.png" style="transform: scale(0.7);">
+        <div class="card-body" style="text-align: center;">
+          <p class="card-text">Personal information</p>
+        </div>
       </div>
-      <div (click)="logOut()">
-        <span class="tooltip">Log out</span>
+
+      <div class="card" (click)="navService.navigateTo('/legal-info')">
+        <img src="../../../assets/images/legal-info.png">
+        <div class="card-body" style="text-align: center;">
+          <p class="card-text">Legal information</p>
+        </div>
       </div>
-    </nav>
+
+      <div class="card" (click)="logOut()">
+        <img src="../../../assets/images/log-out.png" style="transform: scale(0.8);">
+        <div class="card-body center" style="text-align: center;">
+          <p class="card-title">Log out</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

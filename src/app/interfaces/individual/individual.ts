@@ -4,7 +4,6 @@ export interface Individual {
   lastname: string,
   birthday: string,
   email: string,
-
   typeOfCustomer: string,
   street?: string,
   zip?: string,

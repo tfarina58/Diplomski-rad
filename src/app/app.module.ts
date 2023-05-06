@@ -14,27 +14,38 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HeaderComponent} from "./components/header/header.component";
 import {SettingsComponent} from "./pages/settings/settings.component";
 import {PersonalInfoComponent} from "./pages/settings/personal-info/personal-info.component";
+import { NewsComponent } from './pages/news/news.component';
+import {LegalInfoComponent} from "./pages/settings/legal-info/legal-info.component";
+import {ForgotPasswordComponent} from "./pages/auth/forgot-password/forgot-password.component";
+import {ResetPasswordComponent} from "./pages/auth/reset-password/reset-password.component";
 
 @NgModule({
     declarations: [
-      AppComponent,
-      AuthComponent,
-      LoginComponent,
-      RegisterComponent,
-      HomeComponent,
-      HeaderComponent,
-      SettingsComponent,
-      PersonalInfoComponent
+        AppComponent,
+        AuthComponent,
+        LoginComponent,
+        RegisterComponent,
+        HomeComponent,
+        HeaderComponent,
+        SettingsComponent,
+        PersonalInfoComponent,
+        NewsComponent,
+        LegalInfoComponent,
+        ForgotPasswordComponent,
+        ResetPasswordComponent
     ],
     imports: [
-      CommonModule,
-      BrowserModule,
-      AppRoutingModule,
-      ReactiveFormsModule,
-      FormsModule,
-      ToastrModule.forRoot(),
-      BrowserAnimationsModule
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        ToastrModule.forRoot(),
+        BrowserAnimationsModule
     ],
-  bootstrap: [AppComponent]
+    exports: [
+        HeaderComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,133 +1,290 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <div>
-      <span>Register as a company</span>
-      <label class="switch">
-        <input type="checkbox" [(ngModel)]="chosenForm">
-        <span class="slider round"></span>
-      </label>
-      <span>Register as an individual</span>
-    </div>
+    <section class="gradient-custom">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+                <p class="text-white-50">Registration type</p>
+                <h2 class="fw-bold mb-2 text-uppercase">I want to register as: </h2>
+
+                <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                  <div class="form-outline form-white">
+                    <label class="form-label" style="color: #6a11cb; font-weight: bold; font-size: 1.2rem">A company</label>
+                  </div>
+
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" [(ngModel)]="chosenForm">
+                  </div>
+
+                  <div class="form-outline form-white">
+                    <label class="form-label" style="color: #2575fc; font-weight: bold; font-size: 1.2rem">An individual</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <form *ngIf="chosenForm" [formGroup]="registerFormAsIndividual" (ngSubmit)="submit(registerFormAsIndividual)">
-      <div>
-        <span>Firstname</span>
-        <input type="text" [formControlName]="'firstname'">
-      </div>
-      <div>
-        <span>Lastname</span>
-        <input type="text" [formControlName]="'lastname'">
-      </div>
-      <div>
-        <span>Date of birth</span>
-        <input type="date" [formControlName]="'birthday'">
-      </div>
-      <div>
-        <span>Phone*</span>
-        <input type="tel" [formControlName]="'phone'">
-      </div>
-      <div>
-        <span>Street*</span>
-        <input type="text" [formControlName]="'street'">
-      </div>
-      <div>
-        <span>Zip code*</span>
-        <input type="text" [formControlName]="'zip'">
-      </div>
-      <div>
-        <span>City*</span>
-        <input type="text" [formControlName]="'city'">
-      </div>
-      <div>
-        <span>Country*</span>
-        <input type="text" [formControlName]="'country'">
-      </div>
-      <div>
-        <span>Email</span>
-        <input type="email" [formControlName]="'email'">
-      </div>
-      <div>
-        <span>Password</span>
-        <input type="password" id="ip" [formControlName]="'password'" #ip>
-        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
-          <img *ngIf="ip.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
-          <img *ngIf="ip.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
-        </button>
-      </div>
-      <div>
-        <span>Repeat password</span>
-        <input type="password" id="ipr" [formControlName]="'repeatPassword'">
-        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
-          <img *ngIf="ip.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
-          <img *ngIf="ip.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
-        </button>
-      </div>
-      <div>
-        <span>Terms and conditions</span>
-        <input type="checkbox" [formControlName]="'termsAndConditions'">
-      </div>
-      <button type="submit">Sign up</button>
+      <section class="gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5" style="width: 66%;">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                  <div class="mb-md-5 mt-md-4 pb-5">
+
+                    <h2 class="fw-bold mb-2 text-uppercase">Individual</h2>
+                    <p class="text-white-50 mb-5">Please enter all required information!</p>
+
+                    <div class="A">
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'firstname'">
+                          <label class="form-label">First name</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'lastname'">
+                          <label class="form-label">Last name</label>
+                        </div>
+                      </div>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="date" class="form-control form-control-lg" [formControlName]="'birthday'" style="width: 16rem;">
+                          <label class="form-label">Date of birth</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <input type="tel" class="form-control form-control-lg" [formControlName]="'phone'">
+                          <label class="form-label">Phone*</label>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'street'">
+                          <label class="form-label">Street*</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'zip'">
+                          <label class="form-label">Zip code*</label>
+                        </div>
+                      </div>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'city'">
+                          <label class="form-label">City*</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'country'">
+                          <label class="form-label">Country*</label>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="email" class="form-control form-control-lg" [formControlName]="'email'">
+                          <label class="form-label">Email</label>
+                        </div>
+                      </div>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <div style="display: flex">
+                            <input type="password" id="ip" class="form-control form-control-lg" [formControlName]="'password'" #ip>
+                            <button type="button" (click)="changePasswordVisibility()" style="width: 2.5rem; margin-left: -3rem; border: 0;">
+                              <img *ngIf="ip.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+                              <img *ngIf="ip.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+                            </button>
+                          </div>
+                          <label class="form-label">Password</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <div style="display: flex">
+                            <input type="password" id="ipr" class="form-control form-control-lg" [formControlName]="'repeatPassword'">
+                            <button type="button" (click)="changePasswordVisibility()" style="width: 2.5rem; margin-left: -3rem; border: 0;">
+                              <img *ngIf="ip.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+                              <img *ngIf="ip.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+                            </button>
+                          </div>
+                          <label class="form-label">Repeat password</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-outline form-white mb-4">
+                      <input type="checkbox" [formControlName]="'termsAndConditions'">
+                      <label class="form-label mx-lg-2">By clicking on the checkbox, you agree to our <a class="text-white-50">Terms and conditions</a></label>
+                    </div>
+
+                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign up</button>
+
+                    <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                      <a class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                      <a class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                      <a class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p class="mb-0">
+                      Already have an account? <a class="text-white-50 fw-bold" (click)="navService.navigateTo('/login')">Sign In</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </form>
 
     <form *ngIf="!chosenForm" [formGroup]="registerFormAsCompany" (ngSubmit)="submit(registerFormAsCompany)">
-      <div>
-        <span>Company name</span>
-        <input type="text" [formControlName]="'companyName'">
-      </div>
-      <div>
-        <span>Owner firstname</span>
-        <input type="text" [formControlName]="'ownerFirstname'">
-      </div>
-      <div>
-        <span>Owner lastname</span>
-        <input type="text" [formControlName]="'ownerLastname'">
-      </div>
-      <div>
-        <span>Phone*</span>
-        <input type="tel" [formControlName]="'phone'">
-      </div>
-      <div>
-        <span>Street*</span>
-        <input type="text" [formControlName]="'street'">
-      </div>
-      <div>
-        <span>Zip code*</span>
-        <input type="text" [formControlName]="'zip'">
-      </div>
-      <div>
-        <span>City*</span>
-        <input type="text" [formControlName]="'city'">
-      </div>
-      <div>
-        <span>Country*</span>
-        <input type="text" [formControlName]="'country'">
-      </div>
-      <div>
-        <span>Email</span>
-        <input type="email" [formControlName]="'email'">
-      </div>
-      <div>
-        <span>Password</span>
-        <input type="password" id="cp" [formControlName]="'password'" #cp>
-        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
-          <img *ngIf="cp.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
-          <img *ngIf="cp.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
-        </button>
-      </div>
-      <div>
-        <span>Repeat password</span>
-        <input type="password" id="cpr" [formControlName]="'repeatPassword'">
-        <button type="button" (click)="changePasswordVisibility()" style="width: 40px;">
-          <img *ngIf="cp.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
-          <img *ngIf="cp.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
-        </button>
-      </div>
-      <div>
-        <span>Terms and conditions</span>
-        <input type="checkbox" [formControlName]="'termsAndConditions'">
-      </div>
-      <button type="submit">Sign up</button>
+      <section class="gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5" style="width: 75%;">
+              <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+                  <div class="mb-md-5 mt-md-4 pb-5">
+
+                    <h2 class="fw-bold mb-2 text-uppercase">Company</h2>
+                    <p class="text-white-50 mb-5">Please enter all required information!</p>
+
+                    <div class="A">
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'ownerFirstname'">
+                          <label class="form-label">Owner's first name</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'ownerLastname'">
+                          <label class="form-label">Owner's last name</label>
+                        </div>
+                      </div>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="text" class="form-control form-control-lg" [formControlName]="'companyName'">
+                          <label class="form-label">Company name</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <input type="email" class="form-control form-control-lg" [formControlName]="'phone'">
+
+                          <label class="form-label">Phone*</label>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="email" class="form-control form-control-lg" [formControlName]="'street'">
+
+                          <label class="form-label">Street*</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <input type="email" class="form-control form-control-lg" [formControlName]="'zip'">
+
+                          <label class="form-label">Zip code*</label>
+                        </div>
+                      </div>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="email" class="form-control form-control-lg" [formControlName]="'city'">
+
+                          <label class="form-label">City*</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <input type="email" class="form-control form-control-lg" [formControlName]="'country'">
+
+                          <label class="form-label">Country*</label>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <input type="email" class="form-control form-control-lg" [formControlName]="'email'">
+
+                          <label class="form-label">Email</label>
+                        </div>
+                      </div>
+
+                      <div class="B">
+                        <div class="form-outline form-white mb-4">
+                          <div style="display: flex">
+                            <input type="password" id="cp" class="form-control form-control-lg" [formControlName]="'password'" #cp>
+                            <button type="button" (click)="changePasswordVisibility()" style="width: 2.5rem; margin-left: -3rem; border: 0;">
+                              <img *ngIf="cp.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+                              <img *ngIf="cp.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+                            </button>
+                          </div>
+
+                          <label class="form-label">Password</label>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                          <div style="display: flex">
+                            <input type="password" id="cpr" class="form-control form-control-lg" [formControlName]="'repeatPassword'">
+                            <button type="button" (click)="changePasswordVisibility()" style="width: 2.5rem; margin-left: -3rem; border: 0;">
+                              <img *ngIf="cp.attributes[1].value == 'text'" src="../../../../assets/icons/eye-off-outline.svg">
+                              <img *ngIf="cp.attributes[1].value == 'password'" src="../../../../assets/icons/eye-outline.svg">
+                            </button>
+                          </div>
+
+                          <label class="form-label">Password</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-outline form-white mb-4">
+                      <input type="checkbox" [formControlName]="'termsAndConditions'">
+                      <label class="form-label mx-lg-2">By clicking on the checkbox, you agree to our <a class="text-white-50">Terms and conditions</a></label>
+                    </div>
+
+                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign up</button>
+
+                    <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                      <a class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                      <a class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                      <a class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p class="mb-0">
+                      Already have an account? <a class="text-white-50 fw-bold" (click)="navService.navigateTo('/login')">Sign In</a>
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </form>
   </body>
 </html>

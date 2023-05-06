@@ -48,7 +48,7 @@ export class RegisterComponent {
   chosenForm: boolean = true; // True for individual, false for company
   constructor(private formBuilder: FormBuilder,
               private toast: ToastrService,
-              private navService: NavigationService) {}
+              public navService: NavigationService) {}
 
   async submit(form: FormGroup) {
     if (form.invalid) {
@@ -61,15 +61,15 @@ export class RegisterComponent {
       return;
     }
     // Valid data submitted
+    let rawForm: Individual | Company | undefined;
     if (this.chosenForm) {
-      let rawForm: Individual = form.getRawValue();
+      rawForm = form.getRawValue() as Individual;
       rawForm.typeOfCustomer = 'individual';
-      console.log(rawForm);
     } else {
-      let rawForm: Company = form.getRawValue();
+      rawForm = form.getRawValue() as Company;
       rawForm.typeOfCustomer = 'company';
-      console.log(rawForm);
     }
+    console.log(rawForm);
     this.toast.success("Registration was successful!", "Success:");
     await this.navService.navigateTo('/home');
   }

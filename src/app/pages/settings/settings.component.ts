@@ -12,7 +12,7 @@ export class SettingsComponent {
 
   async logOut() {
     console.log("Logged out!");
-    await this.navService.navigateTo('')
+    await this.navService.navigateTo('/auth');
   }
 
 }
