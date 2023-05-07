@@ -18,6 +18,8 @@ import { NewsComponent } from './pages/news/news.component';
 import {LegalInfoComponent} from "./pages/settings/legal-info/legal-info.component";
 import {ForgotPasswordComponent} from "./pages/auth/forgot-password/forgot-password.component";
 import {ResetPasswordComponent} from "./pages/auth/reset-password/reset-password.component";
+import {MdbModalModule} from "mdb-angular-ui-kit/modal";
+import { FullscreenImageComponent } from './components/fullscreen-image/fullscreen-image.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +34,8 @@ import {ResetPasswordComponent} from "./pages/auth/reset-password/reset-password
         NewsComponent,
         LegalInfoComponent,
         ForgotPasswordComponent,
-        ResetPasswordComponent
+        ResetPasswordComponent,
+        FullscreenImageComponent
     ],
     imports: [
         CommonModule,
@@ -41,7 +44,8 @@ import {ResetPasswordComponent} from "./pages/auth/reset-password/reset-password
         ReactiveFormsModule,
         FormsModule,
         ToastrModule.forRoot(),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        MdbModalModule
     ],
     exports: [
         HeaderComponent

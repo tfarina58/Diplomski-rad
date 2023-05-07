@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NavigationService} from "../../../services/navigation/navigation.service";
 import {ToastrService} from "ngx-toastr";
-import {Individual} from "../../../interfaces/individual/individual";
-import {Company} from "../../../interfaces/company/company";
+import {Individual, Company} from "../../../interfaces/customer/customer";
 
 @Component({
   selector: 'app-register',
