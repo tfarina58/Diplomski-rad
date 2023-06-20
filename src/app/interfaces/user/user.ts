@@ -4,12 +4,14 @@ export interface Company {
   ownerLastname: string,
   companyName: string,
   email: string,
-  typeOfCustomer: string,
+  image?: string | File,
+  typeOfUser: string,
   street?: string,
   zip?: string,
   city?: string,
   country?: string,
-  phone: string
+  phone: string,
+  password?: string
 }
 
 export interface Individual {
@@ -18,10 +20,23 @@ export interface Individual {
   lastname: string,
   birthday: string,
   email: string,
-  typeOfCustomer: string,
+  image?: string | File,
+  typeOfUser: string,
   street?: string,
   zip?: string,
   city?: string,
   country?: string,
   phone?: string
+  password?: string
+}
+
+export interface Admin {
+  id: string,
+  firstname: string,
+  lastname: string,
+  email: string,
+  image?: File,
+  typeOfUser: string,
+  phone?: string
+  password?: string
 }

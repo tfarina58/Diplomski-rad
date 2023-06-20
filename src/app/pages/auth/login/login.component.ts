@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NavigationService} from "../../../services/navigation/navigation.service";
-import {ToastrService} from "ngx-toastr";
+import {PopUpService} from "../../../services/pop-up/pop-up.service";
+import {ReqresService} from "../../../services/reqres/reqres.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent {
   });
 
   constructor(private formBuilder: FormBuilder,
-              private toast: ToastrService,
+              private popup: PopUpService,
+              private reqres: ReqresService,
               public navService: NavigationService) {}
 
   async submit() {
@@ -25,14 +27,27 @@ export class LoginComponent {
       const controls = this.loginForm.controls;
       for (const name in controls) if (controls[name].invalid) invalid = invalid + '</br>• ' + this.firstCapital(name);
 
-      this.toast.warning('Following fields do not have adequate value(s):' + invalid, "Warning", { closeButton: true, timeOut: 4000, progressBar: true, progressAnimation: 'increasing', enableHtml: true, newestOnTop: true });
+      this.popup.showWarningToast('Following fields do not have adequate value(s):' + invalid);
       return;
     }
 
     // Valid data submitted
-    console.log(this.loginForm.getRawValue());
-    this.toast.success("Login was successful!", "Success:");
-    await this.navService.navigateTo('/home');
+    this.popup.showLoadingScreen();
+    try {
+      const rawForm = this.loginForm.getRawValue();
+      const res = await this.reqres.login(rawForm);
+      if (!res.success) {
+        this.popup.showErrorToast("There seems to be a problem with the login. Please try again later.");
+        return;
+      }
+
+      this.popup.showSuccessToast("Login was successful!");
+      await this.navService.navigateTo('/home');
+    } catch (error) {
+      console.log("Login error: ", error);
+    } finally {
+      this.popup.dismissLoadingScreen();
+    }
   }
 
   firstCapital(value: string): string {

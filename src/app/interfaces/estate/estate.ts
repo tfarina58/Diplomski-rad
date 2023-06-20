@@ -1,8 +1,9 @@
 export interface CompanyEstate {
+  name: string,
   id: string,
-  companyName: string,
   companyId: string,
   typeOfEstate: string,
+  image: string,
   street: string,
   zip: string,
   city: string,
@@ -14,11 +15,11 @@ export interface CompanyEstate {
 }
 
 export interface IndividualEstate {
+  name: string,
   id: string,
-  individualFirstName: string,
-  individualLastName: string,
   individualId: string,
   typeOfEstate: string,
+  image: string,
   street: string,
   zip: string,
   city: string,
@@ -27,4 +28,5 @@ export interface IndividualEstate {
     latitude: number,
     longitude: number
   }
+  phone: string
 }

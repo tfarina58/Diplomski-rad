@@ -6,7 +6,6 @@ import {RegisterComponent} from "./pages/auth/register/register.component";
 import {AuthComponent} from "./pages/auth/auth.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {SettingsComponent} from "./pages/settings/settings.component";
-import {NewsComponent} from "./pages/news/news.component";
 import {LegalInfoComponent} from "./pages/settings/legal-info/legal-info.component";
 import {PersonalInfoComponent} from "./pages/settings/personal-info/personal-info.component";
 import {ResetPasswordComponent} from "./pages/auth/reset-password/reset-password.component";
@@ -35,10 +34,6 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent
-  },
-  {
-    path: 'news',
-    component: NewsComponent
   },
   {
     path: 'legal-info',

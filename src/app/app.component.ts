@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {NavigationService} from "./services/navigation/navigation.service";
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,11 @@ import {Router} from "@angular/router";
 export class AppComponent implements OnInit {
   title = 'newapp';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private navService: NavigationService) {}
 
 
   async ngOnInit() {
-    await this.router.navigate(['/auth']);
+    await this.navService.navigateTo('/auth');
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {NavigationService} from "../../../services/navigation/navigation.service";
+import {PopUpService} from "../../../services/pop-up/pop-up.service";
 
 @Component({
   selector: 'app-reset-password',
@@ -22,6 +23,7 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private toast: ToastrService,
+              private popup: PopUpService,
               public navService: NavigationService) {}
 
   ngOnInit() {
@@ -30,6 +32,10 @@ export class ResetPasswordComponent implements OnInit {
 
     this.hash = res.hash;
     this.resetPasswordForm.get('email')?.setValue(res.email);
+  }
+
+  cantChangeEmail() {
+    this.popup.showWarningToast("This mail is set only to give you context to which email you're sending the link to reset your password", {closeButton: true, timeOut: 4000, progressBar: true, progressAnimation: 'increasing', enableHtml: true, newestOnTop: true});
   }
 
   getResetPasswordInfo() {

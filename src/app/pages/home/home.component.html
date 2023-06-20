@@ -4,7 +4,19 @@
     <div class="header">
       <app-header></app-header>
     </div>
-    <div>
+    <div class="options" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-evenly; margin: 3rem 0;">
+      <div class="card" *ngFor="let estate of estates" style="max-width: 16rem; max-height: 16rem;">
+        <img src="../../../assets/images/personal-info.png" >
+        <div class="card-body" style="text-align: center;">
+          <p class="card-text">{{estate.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="options" *ngIf="user?.typeOfUser == 'admin'">
+      <div>
+
+      </div>
       <div class="nav-item">
         <a class="nav-link" (click)="navService.navigateTo('/news')">Statistics</a>
       </div>

@@ -14,12 +14,14 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HeaderComponent} from "./components/header/header.component";
 import {SettingsComponent} from "./pages/settings/settings.component";
 import {PersonalInfoComponent} from "./pages/settings/personal-info/personal-info.component";
-import { NewsComponent } from './pages/news/news.component';
 import {LegalInfoComponent} from "./pages/settings/legal-info/legal-info.component";
 import {ForgotPasswordComponent} from "./pages/auth/forgot-password/forgot-password.component";
 import {ResetPasswordComponent} from "./pages/auth/reset-password/reset-password.component";
 import {MdbModalModule} from "mdb-angular-ui-kit/modal";
 import { FullscreenImageComponent } from './components/fullscreen-image/fullscreen-image.component';
+import {HttpClientModule} from "@angular/common/http";
+import {MyEstatesComponent} from "./pages/my-estates/my-estates.component";
+import {SubAdminsComponent} from "./pages/sub-admins/sub-admins.component";
 
 @NgModule({
     declarations: [
@@ -31,11 +33,12 @@ import { FullscreenImageComponent } from './components/fullscreen-image/fullscre
         HeaderComponent,
         SettingsComponent,
         PersonalInfoComponent,
-        NewsComponent,
         LegalInfoComponent,
         ForgotPasswordComponent,
         ResetPasswordComponent,
-        FullscreenImageComponent
+        FullscreenImageComponent,
+        MyEstatesComponent,
+        SubAdminsComponent
     ],
     imports: [
         CommonModule,
@@ -45,7 +48,8 @@ import { FullscreenImageComponent } from './components/fullscreen-image/fullscre
         FormsModule,
         ToastrModule.forRoot(),
         BrowserAnimationsModule,
-        MdbModalModule
+        MdbModalModule,
+        HttpClientModule
     ],
     exports: [
         HeaderComponent

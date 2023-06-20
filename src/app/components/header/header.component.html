@@ -1,10 +1,57 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top py-3" style="background-color: #212529">
-  <span class="navbar-brand mx-lg-4" (click)="navService.navigateTo('/home')">Reallly long app name</span>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top py-3" style="background-color: #212529" *ngIf="user?.typeOfUser == 'individual' || user?.typeOfUser == 'company'">
+  <span class="navbar-brand mx-lg-4 pointer" (click)="navService.navigateTo('/home')">Reallly long app name</span>
 
+  <div style="display: flex; justify-content: space-between; flex-wrap: nowrap; flex-direction: row; width: 100%;">
+    <div class="collapse navbar-collapse px-4">
+      <div class="navbar-nav mr-auto">
+        <div class="nav-item">
+          <a class="nav-link pointer" (click)="navService.navigateTo('/sub-admins')">Sub-admins</a>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link pointer" (click)="navService.navigateTo('/settings')">Statistics</a>
+        </div>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse px-4" style="justify-content: end;" (click)="openDropdown()">
+      <div class="navbar-nav mr-auto">
+        <div class="nav-item">
+          <a class="nav-link pointer" *ngIf="user?.typeOfUser == 'individual'">{{user?.firstname + ' ' + user?.lastname}}</a>
+          <a class="nav-link pointer" *ngIf="user?.typeOfUser == 'company'">{{user?.companyName}}</a>
+        </div>
+      </div>
+      <div class="navbar-nav mr-auto">
+        <div class="nav-item">
+          <img class="nav-link pointer" src="{{user?.image}}" style="max-height: 3.5rem; border-radius: 1rem;">
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top py-3" style="background-color: #212529" *ngIf="user?.typeOfUser == 'admin'">
+  <span class="navbar-brand mx-lg-4 pointer" (click)="navService.navigateTo('/home')">Reallly long app name</span>
+
+  <div style="display: flex; justify-content: space-between; flex-wrap: nowrap; flex-direction: row; width: 100%;">
   <div class="collapse navbar-collapse px-4">
     <div class="navbar-nav mr-auto">
       <div class="nav-item">
-        <a class="nav-link" (click)="navService.navigateTo('/settings')">Settings</a>
+        <a class="nav-link pointer" (click)="navService.navigateTo('/sub-admins')">Sub-admins</a>
+      </div>
+      <div class="nav-item">
+        <a class="nav-link pointer" (click)="navService.navigateTo('/settings')">Statistics</a>
+      </div>
+    </div>
+  </div>
+    <div class="collapse navbar-collapse px-4" style="justify-content: end;" (click)="openDropdown()">
+      <div class="navbar-nav mr-auto">
+        <div class="nav-item">
+          <a class="nav-link pointer">{{user?.name}}</a>
+        </div>
+      </div>
+      <div class="navbar-nav mr-auto">
+        <div class="nav-item">
+          <img class="nav-link pointer" src="{{user?.image}}" style="max-height: 3.5rem; border-radius: 1rem;">
+        </div>
       </div>
     </div>
   </div>

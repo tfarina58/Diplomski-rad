@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {NavigationService} from "../../../services/navigation/navigation.service";
 import {ToastrService} from "ngx-toastr";
-import {Individual, Company} from "../../../interfaces/customer/customer";
+import {Individual, Company} from "../../../interfaces/user/user";
+import {ReqresService} from "../../../services/reqres/reqres.service";
+import {PopUpService} from "../../../services/pop-up/pop-up.service";
 
 @Component({
   selector: 'app-register',
@@ -47,11 +49,13 @@ export class RegisterComponent {
   chosenForm: boolean = true; // True for individual, false for company
   constructor(private formBuilder: FormBuilder,
               private toast: ToastrService,
+              private reqres: ReqresService,
+              private popup: PopUpService,
               public navService: NavigationService) {}
 
   async submit(form: FormGroup) {
+    // Invalid data submitted
     if (form.invalid) {
-      // Invalid data submitted
       let invalid: string = '';
       const controls = form.controls;
       for (const name in controls) if (controls[name].invalid) invalid = invalid + '</br>• ' + this.firstCapital(name);
@@ -59,18 +63,34 @@ export class RegisterComponent {
       this.toast.warning('Following fields do not have adequate value(s):' + invalid, "Warning", { closeButton: true, timeOut: 4000, progressBar: true, progressAnimation: 'increasing', enableHtml: true, newestOnTop: true });
       return;
     }
+
     // Valid data submitted
-    let rawForm: Individual | Company | undefined;
-    if (this.chosenForm) {
-      rawForm = form.getRawValue() as Individual;
-      rawForm.typeOfCustomer = 'individual';
-    } else {
-      rawForm = form.getRawValue() as Company;
-      rawForm.typeOfCustomer = 'company';
+    this.popup.showLoadingScreen();
+    try {
+      let rawForm: Individual | Company | undefined;
+      if (this.chosenForm) {
+        rawForm = form.getRawValue() as Individual;
+        rawForm.typeOfUser = 'individual';
+      } else {
+        rawForm = form.getRawValue() as Company;
+        rawForm.typeOfUser = 'company';
+      }
+
+      let res = await this.reqres.register(rawForm);
+      if (!res?.success) {
+        this.popup.showErrorToast("There seems to be a problem with the registration. Please try again later.");
+        return;
+      }
+
+      this.toast.success("Registration was successful!", "Success:");
+      await this.navService.navigateTo('/home');
+    } catch (error) {
+        console.log("Register error: ", error);
+    } finally {
+      this.popup.dismissLoadingScreen();
     }
-    console.log(rawForm);
-    this.toast.success("Registration was successful!", "Success:");
-    await this.navService.navigateTo('/home');
+
+
   }
 
   confirmedValidator(controlName: string, matchingControlName: string) {
