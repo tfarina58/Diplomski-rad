@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="header">
+      <app-header></app-header>
+    </div>
+    <section class="gradient-custom" style="z-index: 10">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+                <h2 class="fw-bold mb-2">Show estates...</h2>
+
+                <div style="display: flex; justify-content: space-evenly; align-items: center;">
+                  <div class="form-outline form-white">
+                    <label class="form-label" style="color: #6a11cb; font-weight: bold; font-size: 1.2rem">on map</label>
+                  </div>
+
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" (click)="changeDisplay()">
+                  </div>
+
+                  <div class="form-outline form-white">
+                    <label class="form-label" style="color: #2575fc; font-weight: bold; font-size: 1.2rem">as list</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="options estates" *ngIf="displayAs">
+      <div class="card estate" *ngFor="let estate of estates" (click)="navService.navigateTo('/estate-details', {estate: estate})">
+        <img src="{{estate?.image}}" style="object-fit: cover; max-height: 20rem; width: 60%; padding: 2px 0;">
+        <div class="card-body" style="text-align: center; max-height: 4rem;">
+          <p class="card-text">{{estate.name}}</p>
+          <p class="card-text">{{estate.street}}, {{estate.city}} {{estate.zip}}, {{estate.country}}</p>
+        </div>
+      </div>
+    </div>
+    <div id="map"></div>
+  </body>
+</html>

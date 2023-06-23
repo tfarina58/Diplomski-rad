@@ -9,6 +9,8 @@ import {SettingsComponent} from "./pages/settings/settings.component";
 import {LegalInfoComponent} from "./pages/settings/legal-info/legal-info.component";
 import {PersonalInfoComponent} from "./pages/settings/personal-info/personal-info.component";
 import {ResetPasswordComponent} from "./pages/auth/reset-password/reset-password.component";
+import {MyEstatesComponent} from "./pages/my-estates/my-estates.component";
+import {EstateDetailsComponent} from "./pages/my-estates/estate-details/estate-details.component";
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
   {
     path: 'reset-password',
     component: ResetPasswordComponent
+  },
+  {
+    path: 'my-estates',
+    component: MyEstatesComponent
+  },
+  {
+    path: 'estate-details',
+    component: EstateDetailsComponent
   }
 ];
 

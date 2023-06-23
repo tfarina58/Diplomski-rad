@@ -22,6 +22,7 @@ import { FullscreenImageComponent } from './components/fullscreen-image/fullscre
 import {HttpClientModule} from "@angular/common/http";
 import {MyEstatesComponent} from "./pages/my-estates/my-estates.component";
 import {SubAdminsComponent} from "./pages/sub-admins/sub-admins.component";
+import {EstateDetailsComponent} from "./pages/my-estates/estate-details/estate-details.component";
 
 @NgModule({
     declarations: [
@@ -38,6 +39,7 @@ import {SubAdminsComponent} from "./pages/sub-admins/sub-admins.component";
         ResetPasswordComponent,
         FullscreenImageComponent,
         MyEstatesComponent,
+        EstateDetailsComponent,
         SubAdminsComponent
     ],
     imports: [

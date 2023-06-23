@@ -1,0 +1,21 @@
+.estates {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  margin: 3rem 0;
+  align-items: center;
+
+  .estate {
+    width: 70rem;
+    max-height: 20rem;
+    height: auto;
+    justify-content: center;
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    border: 2px solid black
+  }
+}
